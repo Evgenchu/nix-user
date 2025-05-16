@@ -27,8 +27,8 @@
           '';
 
           meta = {
-            description = "A CLI tool for managing NixOS users";
-            homepage = "https://github.com/your/repo";
+            description = "A CLI tool for managing NixOS users imperatively by generating Nix code";
+            homepage = "https://github.com/Evgenchu/nix-user";
             license = pkgs.lib.licenses.mit;
           };
         };
