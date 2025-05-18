@@ -5,7 +5,11 @@ if ! test -e "$CONFIGURATION_FILE"; then
     echo "File $CONFIGURATION_FILE doesnt exist!"
     exit 1
 fi
+
 NIX_USER_DIR=$(dirname "$(readlink -f "$0")")
+if ! test -d "$HOME/tmp/nix-user";then
+  mkdir -p "$HOME/tmp/nix-user"
+fi
 export NIX_USER_DIR
 case "$1" in
   help|-h)
