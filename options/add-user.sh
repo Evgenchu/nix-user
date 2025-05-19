@@ -59,6 +59,7 @@ EOF
 awk NF "$file" > temp && mv temp "$file"
 if grep -q "users.users.$USER_NAME" "$CONFIGURATION_FILE"; then
   echo "User $USER_NAME already exists. User configuration is saved in file $file!"
+  echo "You can run the command 'nix-user -u $file' to update the existing configuration!"
   exit 1
 fi
 last_line=$(tail -n 1 "$CONFIGURATION_FILE")

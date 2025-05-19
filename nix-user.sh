@@ -25,8 +25,7 @@ case "$1" in
     sed -i "s/^CONFIGURATION_FILE=.*/CONFIGURATION_FILE=""$2""/" config.sh
   ;;
   update-user|-u)
-    "${NIX_USER_DIR}/options/delete-user.sh" "$@"
-    "${NIX_USER_DIR}/options/add-user.sh" "$@"
+    "${NIX_USER_DIR}/options/update-user.sh" "$@"
   ;;
   scan|-s)
     "${NIX_USER_DIR}/options/scan.sh"
