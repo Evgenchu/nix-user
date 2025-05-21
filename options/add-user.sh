@@ -42,7 +42,7 @@ while [ $# -gt 0 ]; do
   esac
 done
 : "${USER_HOME:?Missing --home}" "${USER_NAME:?Missing --name}"
-file="$HOME/tmp/nix-user/$USER_NAME".nix
+file="/tmp/nix-user/$USER_NAME".nix
 
 touch "$file"
 
