@@ -7,8 +7,8 @@ if ! test -e "$CONFIGURATION_FILE"; then
 fi
 
 NIX_USER_DIR=$(dirname "$(readlink -f "$0")")
-if ! test -d "$HOME/tmp/nix-user";then
-  mkdir -p "$HOME/tmp/nix-user"
+if ! test -d "/tmp/nix-user";then
+  mkdir -p "/tmp/nix-user"
 fi
 export NIX_USER_DIR
 case "$1" in
