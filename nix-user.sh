@@ -30,5 +30,5 @@ case "$1" in
   scan|-s)
     "${NIX_USER_DIR}/options/scan.sh"
   ;;
-  *) echo "No such option $1!"
+  *) echo "No such option $1! Run 'nix-user help' to see the list of available options!"
 esac
