@@ -1,6 +1,7 @@
 #!/bin/sh
 
 . ./config.sh
+. ./utils/functions.sh
 shift
 while [ $# -gt 0 ]; do
   case "$1" in
@@ -43,6 +44,8 @@ while [ $# -gt 0 ]; do
 done
 : "${USER_HOME:?Missing --home}" "${USER_NAME:?Missing --name}"
 file="/tmp/nix-user/$USER_NAME".nix
+
+check_conf
 
 touch "$file"
 

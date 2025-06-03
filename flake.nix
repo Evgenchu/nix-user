@@ -36,7 +36,6 @@
       {
         packages = {
           nix-user = nix-user;
-          default = nix-user;
         };
         devShells.default = pkgs.mkShell {
           buildInputs = [ nix-user ];
