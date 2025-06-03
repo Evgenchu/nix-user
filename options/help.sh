@@ -4,13 +4,18 @@ cat <<'HELP'
 Usage: nix-user [options]
 
 Options:
-  -h, help          Show this help message
-  -a, add-user      Create a user
-  -d, delete-user   Delete a user
-  -s, set-file      Change the configuration file for the program
+  -h, help                   Show this help message
+  -a, add-user               Create a user
+  -d, delete-user            Delete a user
+  -c, set-configuration      Change the configuration file for the program
+  -s, scan                   Generate code for existing users and add it to the configuration
+  -u, update-user            Update a user
+  -g, clean-cache            Clean the cache created by the program
 Examples:
-  nix-user -h          Show this help message
-  nix-user -a --help   Create a user help menu
-  nix-user -d --help
-  nix-user -s "/etc/nixos-john/configuration.nix"
+  nix-user -a --help          Create user help menu
+  nix-user -d --help          Delete user help menu
+  nix-user -c "/foo/bar.nix"  Change the configuration file
+  nix-user -s                 Automatically update the user system code
+  nix-user -u "john.nix"      Create or modify the 'John' user configuration
+
 HELP

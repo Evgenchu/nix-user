@@ -32,11 +32,28 @@
             license = pkgs.lib.licenses.mit;
           };
         };
+        execution-tests =
+          pkgs.runCommandLocal "execution"
+            {
+              src = ./.;
+              nativeBuildInputs = with pkgs; [ bash ];
+            }
+            ''
+              cp -r $src/* .
+              chmod +x tests/executable-test.sh 
+              export NIX_USER_PATH=${nix-user}
+              if bash tests/executable-test.sh; then
+                echo "Tests passed!"
+                mkdir -p $out
+              else
+                echo "Tests failed!"
+                exit 1
+              fi
+            '';
       in
       {
         packages = {
           nix-user = nix-user;
-          default = nix-user;
         };
         devShells.default = pkgs.mkShell {
           buildInputs = [ nix-user ];
@@ -44,6 +61,10 @@
             echo "nix-user development environment activated"
             echo "You can now run 'nix-user' directly to test how it works"
           '';
+        };
+        checks = {
+          build-check = nix-user;
+          execution-check = execution-tests;
         };
       }
     );
