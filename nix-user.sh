@@ -32,5 +32,8 @@ case "$1" in
     check_conf
     "${NIX_USER_DIR}/options/scan.sh"
   ;;
+  clean-cache|-g)
+    rm -r /tmp/nix-user
+  ;;
   *) echo "No such option $1! Run 'nix-user help' to see the list of available options!"
 esac

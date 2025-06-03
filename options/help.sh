@@ -10,6 +10,7 @@ Options:
   -c, set-configuration      Change the configuration file for the program
   -s, scan                   Generate code for existing users and add it to the configuration
   -u, update-user            Update a user
+  -g, clean-cache            Clean the cache created by the program
 Examples:
   nix-user -a --help          Create user help menu
   nix-user -d --help          Delete user help menu

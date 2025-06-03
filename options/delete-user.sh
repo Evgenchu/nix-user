@@ -1,8 +1,9 @@
 #!/bin/sh
 
 . ./config.sh
-
+. ./utils/functions.sh
 if [ "$2" = "--name" ]; then
+  check_conf
   if ! grep -q "users.users.$3" "$CONFIGURATION_FILE"; then
     echo "User $3 is not in $CONFIGURATION_FILE!"
     exit 1
