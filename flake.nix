@@ -44,6 +44,18 @@
             echo "You can now run 'nix-user' directly to test how it works"
           '';
         };
+        checks = {
+          build-test = nix-user;
+          executable-test =
+            pkgs.runCommand "nix-user-executable-test"
+              {
+                buildInputs = [ nix-user ];
+              }
+              ''
+                ${./tests/executable-test.sh}
+                touch $out
+              '';
+        };
       }
     );
 }
