@@ -32,6 +32,24 @@
             license = pkgs.lib.licenses.mit;
           };
         };
+        execution-tests =
+          pkgs.runCommandLocal "execution"
+            {
+              src = ./.;
+              nativeBuildInputs = with pkgs; [ bash ];
+            }
+            ''
+              cp -r $src/* .
+              chmod +x tests/executable-test.sh 
+              export NIX_USER_PATH=${nix-user}
+              if bash tests/executable-test.sh; then
+                echo "Tests passed!"
+                mkdir -p $out
+              else
+                echo "Tests failed!"
+                exit 1
+              fi
+            '';
       in
       {
         packages = {
@@ -45,16 +63,8 @@
           '';
         };
         checks = {
-          build-test = nix-user;
-          executable-test =
-            pkgs.runCommand "nix-user-executable-test"
-              {
-                buildInputs = [ nix-user ];
-              }
-              ''
-                ${./tests/executable-test.sh}
-                touch $out
-              '';
+          build-check = nix-user;
+          execution-check = execution-tests;
         };
       }
     );

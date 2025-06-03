@@ -35,5 +35,7 @@ case "$1" in
   clean-cache|-g)
     rm -r /tmp/nix-user
   ;;
-  *) echo "No such option $1! Run 'nix-user help' to see the list of available options!"
+  *)
+    echo "No such option $1! Run 'nix-user help' to see the list of available options!"
+    exit 1
 esac

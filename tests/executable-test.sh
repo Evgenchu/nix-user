@@ -24,7 +24,7 @@ if [ ! -f "$NIX_USER_PATH/bin/nix-user.sh" ]; then
 fi
 
 if ! "$NIX_USER_PATH/bin/nix-user" help > /dev/null 2>&1; then
-    echo "ERROR: nix-user --help failed"
+    echo "ERROR: nix-user help failed"
     exit 1
 fi
 
