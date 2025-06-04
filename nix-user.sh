@@ -34,6 +34,7 @@ case "$1" in
   ;;
   clean-cache|-g)
     rm -r /tmp/nix-user
+    echo "Cache cleared successfully!"
   ;;
   *)
     echo "No such option $1! Run 'nix-user help' to see the list of available options!"
