@@ -1,7 +1,7 @@
 #!/bin/sh
 
-. ./config.sh
-. ./utils/functions.sh
+. "$NIX_USER_DIR"/config.sh
+. "$NIX_USER_DIR"/utils/functions.sh
 shift
 while [ $# -gt 0 ]; do
   case "$1" in

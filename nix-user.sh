@@ -1,8 +1,8 @@
 #!/bin/sh
 
-. ./config.sh
-. ./utils/functions.sh
 NIX_USER_DIR=$(dirname "$(readlink -f "$0")")
+. "$NIX_USER_DIR/config.sh"
+. "$NIX_USER_DIR/utils/functions.sh"
 if ! test -d "/tmp/nix-user";then
   mkdir -p "/tmp/nix-user"
 fi
