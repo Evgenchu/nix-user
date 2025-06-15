@@ -1,7 +1,6 @@
 #!/bin/sh
 
-. ./config.sh
-
+. "$NIX_USER_DIR"/config.sh
 if ! test -f "$2"; then
   echo "No such file $2!"
   exit 1

@@ -1,7 +1,7 @@
 #!/bin/sh
 
-. ./config.sh
-. ./utils/functions.sh
+. "$NIX_USER_DIR"/config.sh
+. "$NIX_USER_DIR"/utils/functions.sh
 if [ "$2" = "--name" ]; then
   check_conf
   if ! grep -q "users.users.$3" "$CONFIGURATION_FILE"; then

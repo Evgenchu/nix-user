@@ -1,6 +1,6 @@
 #!/bin/sh
 
-. ./config.sh
+. "$NIX_USER_DIR"/config.sh
 while IFS=: read -r username password uid gid comment homedir shell; do
     if [ "$uid" -ge 1000 ] && [ "$uid" -lt 30000 ] && ! grep -q "users.users.$username" "$CONFIGURATION_FILE" ;then
       echo "Found user $username!"
