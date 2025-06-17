@@ -18,8 +18,8 @@ if [ ! -L "$NIX_USER_PATH/bin/nix-user" ]; then
     exit 1
 fi
 
-if [ ! -f "$NIX_USER_PATH/bin/nix-user.sh" ]; then
-    echo "ERROR: nix-user.sh target doesn't exist"
+if [ -f "$NIX_USER_PATH/bin/nix-user.sh" ]; then
+    echo "ERROR: nix-user.sh target shouldn't exist"
     exit 1
 fi
 

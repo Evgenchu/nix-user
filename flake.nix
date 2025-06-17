@@ -18,14 +18,15 @@
           pname = "nix-user";
           version = "1.0.0";
           src = ./.;
-
           installPhase = ''
-            mkdir -p $out/bin
-            cp -r $src/* $out/bin
-            chmod +x $out/bin/nix-user.sh
-            ln -s $out/bin/nix-user.sh $out/bin/nix-user
+            mkdir -p $out/lib/nix-user $out/bin
+            cp $src/nix-user.sh $out/lib/nix-user/
+            cp $src/config.sh $out/lib/nix-user/
+            cp -r $src/options $out/lib/nix-user/
+            cp -r $src/utils $out/lib/nix-user/
+            find $out/lib/nix-user -name "*.sh" -exec chmod +x {} \;
+            ln -s $out/lib/nix-user/nix-user.sh $out/bin/nix-user
           '';
-
           meta = {
             description = "A CLI tool for managing NixOS users imperatively by generating Nix code";
             homepage = "https://github.com/Evgenchu/nix-user";
