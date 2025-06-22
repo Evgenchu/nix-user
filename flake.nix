@@ -60,7 +60,7 @@
           buildInputs = [ nix-user ];
           shellHook = ''
             echo "nix-user development environment activated"
-            echo "You can now run 'nix-user' directly to test how it works"
+            echo "You can now run 'nix-user' directly to test how it works!"
           '';
         };
         checks = {

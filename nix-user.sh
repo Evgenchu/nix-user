@@ -18,8 +18,8 @@ case "$1" in
     "${NIX_USER_DIR}/options/delete-user.sh" "$@"
   ;;
   set-configuration|-c)
-    if grep -q "^export CONFIGURATION_FILE=" config.sh; then
-      sed -i "s|^export CONFIGURATION_FILE=.*|export CONFIGURATION_FILE=\"$2\"|" config.sh
+    if grep -q "^export CONFIGURATION_FILE=" "$NIX_USER_DIR/config.sh"; then
+      sed -i "s|^export CONFIGURATION_FILE=.*|export CONFIGURATION_FILE=\"$2\"|" "$NIX_USER_DIR/config.sh"
     else
       echo "export CONFIGURATION_FILE=\"$2\"" >> config.sh
     fi
